@@ -15,7 +15,7 @@ def mask_image():
          return
    file1=request.files['file']
    img = Image.open(file1)
-   save_image(img, "/ccc.png")
+   save_image(img, "ccc.png")
 
    return send_file('ccc.png', as_attachment=True,attachment_filename="aa.png")
 
