@@ -1,4 +1,4 @@
-from model import *
+
 import os
 from PIL import Image
 from flask import Flask, render_template, request, jsonify, send_file, make_response, send_from_directory, render_template
@@ -13,9 +13,8 @@ def mask_image():
          return
    file1=request.files['file']
    img = Image.open(file1)
-   image=to_tensor(img)
-   array = image.detach().numpy()
-   return send_file(io.BytesIO(array),mimetype="image/png", as_attachment=True,attachment_filename="aa.png")
+   
+   return send_file(io.BytesIO(img),mimetype="image/png", as_attachment=True,attachment_filename="aa.png")
 
 if __name__ == "__main__":
     app.run(debug=True)
