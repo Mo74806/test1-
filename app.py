@@ -1,6 +1,8 @@
+from torchvision.utils import save_image
 
 import os
 from PIL import Image
+import io
 from flask import Flask, render_template, request, jsonify, send_file, make_response, send_from_directory, render_template
 app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
@@ -13,8 +15,9 @@ def mask_image():
          return
    file1=request.files['file']
    img = Image.open(file1)
-   
-   return send_file(io.BytesIO(img),mimetype="image/png", as_attachment=True,attachment_filename="aa.png")
+   save_image(out, "/ccc.png")
+
+   return send_file('ccc.png', as_attachment=True,attachment_filename="aa.png")
 
 if __name__ == "__main__":
     app.run(debug=True)
