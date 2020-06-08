@@ -5,7 +5,7 @@ from PIL import Image
 import io
 from flask import Flask, render_template, request, jsonify, send_file, make_response, send_from_directory, render_template
 app = Flask(__name__)
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/mask_image', methods=['POST', 'GET'])
 def mask_image():
    if request.method == 'GET':
       return render_template('index.html')
